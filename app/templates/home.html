@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>KEYBOARD</title>
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='images/musicnote.png')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/master.css')}}">
+  </head>
+  <script>
+  var document = new Document;
+  var score = 0;
+  var sounds = ["static/keyboard sounds/316898__jaz-the-man-2__do.wav",
+                "static/keyboard sounds/316908__jaz-the-man-2__re.wav",
+                "static/keyboard sounds/316906__jaz-the-man-2__mi.wav",
+                "static/keyboard sounds/316904__jaz-the-man-2__fa.wav",
+                "static/keyboard sounds/316912__jaz-the-man-2__sol.wav",
+                "static/keyboard sounds/316902__jaz-the-man-2__la.wav",
+                "static/keyboard sounds/316910__jaz-the-man-2__si-stretched.wav",
+                "static/keyboard sounds/316900__jaz-the-man-2__do-stretched-octave.wav",
+                "static/keyboard sounds/316901__jaz-the-man-2__do-octave.wav"];
+  function playSound(sound_index){
+    var audio = new Audio(sounds[sound_index]);
+    audio.play();
+    score = score + 1;
+    document.getElementById('score').innerHTML = String(score);
+  }
+  </script>
+  <body>
+    <div class="score">
+        <h1>Your Score:<span id="score">0</span></h1>
+    </div>
+    <div class="keyboard">
+      <button type="button" name="button" onclick="playSound(0)"></button>
+      <button type="button" name="button" onclick="playSound(1)"></button>
+      <button type="button" name="button" onclick="playSound(2)"></button>
+      <button type="button" name="button" onclick="playSound(3)"></button>
+      <button type="button" name="button" onclick="playSound(4)"></button>
+      <button type="button" name="button" onclick="playSound(5)"></button>
+      <button type="button" name="button" onclick="playSound(6)"></button>
+      <button type="button" name="button" onclick="playSound(7)"></button>
+      <button type="button" name="button" onclick="playSound(8)"></button>
+    </div>
+  </body>
+</html>
